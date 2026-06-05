@@ -5,7 +5,6 @@ on:
     branches: [ "main", "master" ]
 
 jobs:
-
   test:
     name: Run Python Tests
     runs-on: ubuntu-latest
@@ -35,6 +34,8 @@ jobs:
     name: Deploy to Render
     needs: test
     runs-on: ubuntu-latest
+    # Tell the job to use your 'test' environment secrets
+    environment: test 
 
     steps:
       - name: Trigger Render Deployment
