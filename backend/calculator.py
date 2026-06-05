@@ -19,7 +19,13 @@ def sin(x):
     return math.sin(math.radians(x))
 
 def cos(x):
-    return math.cos(math.radians(x))
+    """Return cosine of angle x (in degrees) with improved precision.
+    Rounds the result to 10 decimal places and treats values near zero as 0.0.
+    """
+    result = math.cos(math.radians(x))
+    if abs(result) < 1e-10:
+        return 0.0
+    return round(result, 10)
 
 def tan(x):
     return math.tan(math.radians(x))
